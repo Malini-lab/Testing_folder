@@ -1,5 +1,5 @@
 pipeline{
-node any{
+agent any
 stages{
 stage('Build')
 {
@@ -21,4 +21,4 @@ echo "release success"
 }
 }
 }
-}
+
