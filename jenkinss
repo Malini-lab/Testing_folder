@@ -12,7 +12,7 @@ pipeline {
         stage('Lunching the chrome') {
             steps {
 
-                    # Example: run a Python script that launches Chrome
+                    // Example: run a Python script that launches Chrome
                     python lunchingchrome.py
             }
         }
