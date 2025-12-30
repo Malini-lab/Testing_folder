@@ -5,7 +5,7 @@ pipeline {
         stage('pulling the selenium code from the git hub') {
             steps {
                 // Pull your Selenium test code from Git
-                git branch: 'main', url: 'https://github.com/Malini-lab/Testing_folder.git'
+                git branch: 'main', url: 'https://github.com/Malini-lab/Testing_folder.git/lunchingchrome.py'
             }
         }
 
