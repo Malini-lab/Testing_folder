@@ -1,0 +1,30 @@
+pipeline {
+    agent any   // Or use agent { label 'selenium-node' } if you have a specific node with Chrome installed
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Pull your Selenium test code from Git
+                git branch: 'main', url: 'https://github.com/Malini-lab/Testing_folder.git'
+            }
+        }
+
+        stage('Run Selenium Chrome Test') {
+            steps {
+                sh '''
+                    # Example: run a Python script that launches Chrome
+                    python scripts/run_chrome_test.py
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '🎉 Selenium Chrome test executed successfully!'
+        }
+        failure {
+            echo '❌ Selenium Chrome test failed. Check logs for details.'
+        }
+    }
+}
