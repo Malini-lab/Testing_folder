@@ -13,6 +13,7 @@ jobs:
         run: |
           curl -X POST "$JENKINS_URL/job/jenkinsdeclarativejtwo/build" \
                --user "$JENKINS_USER:$JENKINS_TOKEN"
+        
         env:
           JENKINS_URL: ${{ secrets.JENKINS_URL }}
           JENKINS_USER: ${{ secrets.JENKINS_USER }}
