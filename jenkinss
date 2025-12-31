@@ -11,10 +11,8 @@ pipeline {
 
         stage('Lunching the chrome') {
             steps {
-                    bat 'echo %PATH%'
-
                     // Example: run a Python script that launches Chrome
-                    bat '"C:\\Users\\Malini DK\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" lunchingchrome.py'
+                    bat 'python lunchingchrome.py'
             }
         }
     }
