@@ -1,6 +1,6 @@
 pipeline {
     agent any   // Or use agent { label 'selenium-node' } if you have a specific node with Chrome installed
-    triggers{ githubPush()}
+    //triggers{ githubPush()}
     stages {
         stage('pulling the selenium code from the git hub') {
             steps {
