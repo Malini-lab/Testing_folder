@@ -1,6 +1,6 @@
 pipeline {
     agent any   // Or use agent { label 'selenium-node' } if you have a specific node with Chrome installed
-
+    triggers{ githubPush()}
     stages {
         stage('pulling the selenium code from the git hub') {
             steps {
@@ -16,5 +16,6 @@ pipeline {
                     bat '"C:\\Users\\Malini DK\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" lunchingchrome.py'
             }
         }
+
     }
 }
