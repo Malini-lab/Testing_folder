@@ -1,9 +1,10 @@
 name : Trigger jenkins 
 on: 
-workflow_dispatch 
+  workflow_dispatch 
 #Above is for triggering manaully not automatically
-jobs: trigger:
-# This is for running this steps in the ubantu mode in github and jenkins 
+jobs: 
+  trigger:
+  # This is for running this steps in the ubantu mode in github and jenkins 
   runs-on: ubuntu-latest 
   #steps are name and "|" to allow multiple commands steps: 
   steps : 
