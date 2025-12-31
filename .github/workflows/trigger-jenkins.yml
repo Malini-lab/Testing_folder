@@ -1,4 +1,19 @@
 name : Trigger jenkins
 on:
   workflow_dispatch
+
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Jenkins
+        run: |
+          curl -X POST "$JENKINS_URL/job/jenkinsdeclarativejtwo/build" \
+               --user "$JENKINS_USER:$JENKINS_TOKEN"
+        env:
+          JENKINS_URL: ${{ secrets.JENKINS_URL }}
+          JENKINS_USER: ${{ secrets.JENKINS_USER }}
+          JENKINS_TOKEN: ${{ secrets.JENKINS_TOKEN }}
+
   
