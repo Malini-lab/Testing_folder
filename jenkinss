@@ -13,7 +13,7 @@ pipeline {
             steps {
 
                     // Example: run a Python script that launches Chrome
-                    python lunchingchrome.py
+                    sh 'python lunchingchrome.py'
             }
         }
     }
