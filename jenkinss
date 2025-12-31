@@ -14,7 +14,7 @@ pipeline {
                     bat 'echo %PATH%'
 
                     // Example: run a Python script that launches Chrome
-                    bat '"C:\Users\Malini DK\AppData\Local\Programs\Python\Python313\python.exe"python lunchingchrome.py'
+                    bat '"C:\\Users\\Malini DK\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" lunchingchrome.py'
             }
         }
     }
