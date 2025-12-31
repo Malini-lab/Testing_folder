@@ -1,18 +1,20 @@
-name : Trigger jenkins 
-on: 
-  workflow_dispatch 
-#Above is for triggering manaully not automatically
-jobs: 
-  trigger:
-  # This is for running this steps in the ubantu mode in github and jenkins 
-  runs-on: ubuntu-latest 
-  #steps are name and "|" to allow multiple commands steps: 
-  steps : 
-  
-    - name: Trigger jenkins 
-      run: | curl -X POST "$JENKINS_URL/job/jenkinsdeclarativejtwo/build" 
-              --user "$JENKINS_USER:$JENKINS_TOKEN"
+name: Trigger Jenkins
 
+on:
+  workflow_dispatch  # Manual trigger
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Jenkins
+        run: |
+          CRUMB=$(curl -s --user "$JENKINS_USER:$JENKINS_TOKEN" \
+            "$JENKINS_URL/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
+
+          curl -X POST "$JENKINS_URL/job/jenkinsdeclarativetwo/buildWithParameters" \
+            --user "$JENKINS_USER:$JENKINS_TOKEN" \
+            -H "$CRUMB"
         env:
           JENKINS_URL: ${{ secrets.JENKINS_URL }}
           JENKINS_USER: ${{ secrets.JENKINS_USER }}
